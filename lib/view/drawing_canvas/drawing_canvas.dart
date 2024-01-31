@@ -89,6 +89,8 @@ class DrawingCanvas extends HookWidget {
 
     var sketch = Sketch(
       points: points,
+      filled: filled.value,
+      type: mapSketchType(drawingMode.value),
       size: drawingMode.value == DrawingMode.eraser
           ? eraserSize.value
           : strokeSize.value,

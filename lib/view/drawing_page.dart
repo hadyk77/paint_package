@@ -11,16 +11,19 @@ import 'package:paint_package/view/drawing_canvas/widgets/canvas_side_bar.dart';
 
 typedef OnSketchEnded = Function(List<Sketch> sketch);
 typedef OnSketch = Function(Sketch sketch);
+typedef OnClear = Function();
 
 class DrawingPage extends StatefulHookWidget {
   const DrawingPage({
     Key? key,
     required this.onSketchEnded,
     required this.onSketch,
+    required this.onClearBoard,
     this.appBarTitle = "",
   }) : super(key: key);
   final OnSketchEnded onSketchEnded;
   final OnSketch onSketch;
+  final OnClear onClearBoard;
   final String appBarTitle;
   @override
   createState() => _DrawingPageState();
@@ -99,6 +102,7 @@ class _DrawingPageState extends State<DrawingPage> {
                 filled: filled,
                 polygonSides: polygonSides,
                 backgroundImage: backgroundImage,
+                onClearBoard: widget.onClearBoard,
               ),
             ),
           ),

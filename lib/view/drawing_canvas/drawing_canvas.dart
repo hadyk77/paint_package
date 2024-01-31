@@ -72,13 +72,13 @@ class DrawingCanvas extends HookWidget {
           : selectedColor.value,
       sides: polygonSides.value,
     );
-    onSketch(sketch);
 
     currentSketch.value = Sketch.fromDrawingMode(
       sketch,
       drawingMode.value,
       filled.value,
     );
+    onSketch(currentSketch.value!);
   }
 
   void onPointerMove(PointerMoveEvent details, BuildContext context) {
@@ -99,12 +99,14 @@ class DrawingCanvas extends HookWidget {
           : selectedColor.value,
       sides: polygonSides.value,
     );
-    onSketch(sketch);
+
     currentSketch.value = Sketch.fromDrawingMode(
       sketch,
       drawingMode.value,
       filled.value,
     );
+
+    onSketch(currentSketch.value!);
   }
 
   void onPointerUp(PointerUpEvent details) {

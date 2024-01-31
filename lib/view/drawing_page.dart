@@ -9,14 +9,17 @@ import 'package:paint_package/view/drawing_canvas/models/drawing_mode.dart';
 import 'package:paint_package/view/drawing_canvas/models/sketch.dart';
 import 'package:paint_package/view/drawing_canvas/widgets/canvas_side_bar.dart';
 
-typedef OnSketch = Function(List<Sketch> sketch);
+typedef OnSketchEnded = Function(List<Sketch> sketch);
+typedef OnSketch = Function(Sketch sketch);
 
 class DrawingPage extends StatefulHookWidget {
   const DrawingPage({
     Key? key,
+    required this.onSketchEnded,
     required this.onSketch,
     this.appBarTitle = "",
   }) : super(key: key);
+  final OnSketchEnded onSketchEnded;
   final OnSketch onSketch;
   final String appBarTitle;
   @override
@@ -62,6 +65,7 @@ class _DrawingPageState extends State<DrawingPage> {
             child: DrawingCanvas(
               width: MediaQuery.of(context).size.width,
               height: MediaQuery.of(context).size.height,
+              onSketchEnded: widget.onSketchEnded,
               onSketch: widget.onSketch,
               drawingMode: drawingMode,
               selectedColor: selectedColor,

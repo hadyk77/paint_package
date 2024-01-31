@@ -22,6 +22,7 @@ class DrawingCanvas extends HookWidget {
   final GlobalKey canvasGlobalKey;
   final ValueNotifier<int> polygonSides;
   final ValueNotifier<bool> filled;
+  final OnSketchEnded onSketchEnded;
   final OnSketch onSketch;
 
   const DrawingCanvas({
@@ -39,6 +40,7 @@ class DrawingCanvas extends HookWidget {
     required this.filled,
     required this.polygonSides,
     required this.backgroundImage,
+    required this.onSketchEnded,
     required this.onSketch,
   }) : super(key: key);
 
@@ -92,7 +94,7 @@ class DrawingCanvas extends HookWidget {
           : selectedColor.value,
       sides: polygonSides.value,
     );
-
+    onSketch(sketch);
     currentSketch.value = Sketch.fromDrawingMode(
       sketch,
       drawingMode.value,
@@ -113,7 +115,7 @@ class DrawingCanvas extends HookWidget {
           : selectedColor.value,
       sides: polygonSides.value,
     );
-    onSketch(allSketches.value);
+    onSketchEnded(allSketches.value);
     currentSketch.value = Sketch.fromDrawingMode(
       sketch,
       drawingMode.value,

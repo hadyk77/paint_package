@@ -68,7 +68,7 @@ class DrawingCanvas extends HookWidget {
           : selectedColor.value,
       sides: polygonSides.value,
     );
-    onSketch(sketch);
+
     currentSketch.value = Sketch.fromDrawingMode(
       sketch,
       drawingMode.value,
@@ -92,7 +92,7 @@ class DrawingCanvas extends HookWidget {
           : selectedColor.value,
       sides: polygonSides.value,
     );
-    onSketch(sketch);
+
     currentSketch.value = Sketch.fromDrawingMode(
       sketch,
       drawingMode.value,
@@ -113,7 +113,7 @@ class DrawingCanvas extends HookWidget {
           : selectedColor.value,
       sides: polygonSides.value,
     );
-    onSketch(sketch);
+    onSketch(allSketches.value);
     currentSketch.value = Sketch.fromDrawingMode(
       sketch,
       drawingMode.value,

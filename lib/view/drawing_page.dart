@@ -9,7 +9,7 @@ import 'package:paint_package/view/drawing_canvas/models/drawing_mode.dart';
 import 'package:paint_package/view/drawing_canvas/models/sketch.dart';
 import 'package:paint_package/view/drawing_canvas/widgets/canvas_side_bar.dart';
 
-typedef OnSketch = Function(Sketch sketch);
+typedef OnSketch = Function(List<Sketch> sketch);
 
 class DrawingPage extends StatefulHookWidget {
   const DrawingPage({

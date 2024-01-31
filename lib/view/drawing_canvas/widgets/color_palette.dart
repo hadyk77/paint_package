@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_colorpicker/flutter_colorpicker.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
-import 'package:flutter_svg/svg.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 
 class ColorPalette extends HookWidget {
   final ValueNotifier<Color> selectedColor;
@@ -72,7 +72,7 @@ class ColorPalette extends HookWidget {
                   showColorWheel(context, selectedColor);
                 },
                 child: SvgPicture.asset(
-                  'assets/svgs/color_wheel.svg',
+                  "packages/paint_package/assets/color_wheel.svg",
                   height: 30,
                   width: 30,
                 ),
@@ -90,8 +90,10 @@ class ColorPalette extends HookWidget {
       builder: (BuildContext context) {
         return AlertDialog(
           title: const Text('Pick a color!'),
+          insetPadding: EdgeInsets.zero,
           content: SingleChildScrollView(
             child: ColorPicker(
+              displayThumbColor: false,
               pickerColor: color.value,
               onColorChanged: (value) {
                 color.value = value;

@@ -62,6 +62,8 @@ class DrawingCanvas extends HookWidget {
     final offset = box.globalToLocal(details.position);
     var sketch = Sketch(
       points: [offset],
+      filled: filled.value,
+      type: mapSketchType(drawingMode.value),
       size: drawingMode.value == DrawingMode.eraser
           ? eraserSize.value
           : strokeSize.value,

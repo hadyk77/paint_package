@@ -23,6 +23,7 @@ class DrawingCanvas extends HookWidget {
   final ValueNotifier<int> polygonSides;
   final ValueNotifier<bool> filled;
   final OnSketch onSketch;
+
   const DrawingCanvas({
     Key? key,
     required this.height,
@@ -174,11 +175,12 @@ class DrawingCanvas extends HookWidget {
 class SketchPainter extends CustomPainter {
   final List<Sketch> sketches;
   final Image? backgroundImage;
-
+  final bool? forceRepaint;
   const SketchPainter({
     Key? key,
     this.backgroundImage,
     required this.sketches,
+    this.forceRepaint,
   });
 
   @override
@@ -286,6 +288,6 @@ class SketchPainter extends CustomPainter {
 
   @override
   bool shouldRepaint(covariant SketchPainter oldDelegate) {
-    return oldDelegate.sketches != sketches;
+    return forceRepaint ?? oldDelegate.sketches != sketches;
   }
 }

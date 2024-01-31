@@ -149,15 +149,17 @@ class CanvasSideBar extends HookWidget {
                           'Polygon Sides: ',
                           style: TextStyle(fontSize: 12),
                         ),
-                        Slider(
-                          value: polygonSides.value.toDouble(),
-                          min: 3,
-                          max: 8,
-                          onChanged: (val) {
-                            polygonSides.value = val.toInt();
-                          },
-                          label: '${polygonSides.value}',
-                          divisions: 5,
+                        Expanded(
+                          child: Slider(
+                            value: polygonSides.value.toDouble(),
+                            min: 3,
+                            max: 8,
+                            onChanged: (val) {
+                              polygonSides.value = val.toInt();
+                            },
+                            label: '${polygonSides.value}',
+                            divisions: 5,
+                          ),
                         ),
                       ],
                     )

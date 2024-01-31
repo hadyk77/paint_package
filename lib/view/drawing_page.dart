@@ -26,8 +26,11 @@ class DrawingPage extends StatefulHookWidget {
 class _DrawingPageState extends State<DrawingPage> {
   @override
   void initState() {
-    SystemChrome.setPreferredOrientations([DeviceOrientation.landscapeLeft]);
     super.initState();
+    SystemChrome.setPreferredOrientations([
+      DeviceOrientation.landscapeRight,
+      DeviceOrientation.landscapeLeft,
+    ]);
   }
 
   @override

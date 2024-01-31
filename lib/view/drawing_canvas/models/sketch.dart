@@ -71,7 +71,7 @@ class Sketch {
     return Sketch(
       points: points,
       color: (json['color'] as String).toColor(),
-      size: json['size'],
+      size: (json['size'] as num).toDouble(),
       filled: json['filled'],
       type: (json['type'] as String).toSketchTypeEnum(),
       sides: json['sides'],

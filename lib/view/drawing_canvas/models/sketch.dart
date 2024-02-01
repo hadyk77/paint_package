@@ -53,8 +53,10 @@ class Sketch {
   }
 
   factory Sketch.fromJson(Map<String, dynamic> json) {
-    List<Offset> points =
-        (json['points'] as List).map((e) => Offset(e['dx'], e['dy'])).toList();
+    List<Offset> points = (json['points'] as List)
+        .map((e) =>
+            Offset((e['dx'] as num).toDouble(), (e['dy'] as num).toDouble()))
+        .toList();
     return Sketch(
       points: points,
       color: (json['color'] as String).toColor(),
